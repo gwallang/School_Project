@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-learning Content View</title>
+  <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+ 
+</head>
+<body>
+
+    <!-- Navbar -->
+<div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a class="navbar-band fw-bold text-decoration-none text-white Edusphere" href="{% url 'home' %}">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+
+               
+            </div>
+        </div>
+                            </nav>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="container">
+                <div class="row" style="margin-top: 5px;">
+            <div class="col-md-3 col-lg-3 col-xl-3"></div>
+            <div class="col-md-6 col-lg-6 col-xl-6 bg-white">
+                <div class="p-3">
+                    <div>
+                        <h4>Welcome {{ user.username }}!</h4>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <h2>Exam Completed</h2>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>Subject: {{ exam.subject.name }}</p>
+                    <p>Attempt Number:  {{ exam.attempt_number }}</p>
+                    <p>your Score: {{ exam.score }}</p>
+                    <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+                </div>
+                
+                <a href="{% url 'home' %}">Back</a>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3"></div>
+    </div>
+
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+<h2>Exam Completed</h2>
+<p>Subject: {{ exam.subject.name }}</p>
+<p>Attempt Number:  {{ exam.attempt_number }}</p>
+<p>your Score: {{ exam.score }}</p>
+<a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>

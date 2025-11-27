@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson</title>
+</head>
+<body>
+    {% for solute in simultaneous %}
+        <h3>{{solute.question | linebreaksbr | safe}}</h3>
+        <h3>{{solute.answer | linebreaksbr | safe}}</h3>
+        <h3>{{solute.solution | linebreaksbr | safe}}</h3>
+    {% endfor %}
+</body>
+</html>

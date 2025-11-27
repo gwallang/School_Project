@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+  <title>E-learning Content View</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+<div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a class="navbar-band fw-bold text-decoration-none text-white Edusphere" href="">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+
+               
+            </div>
+        </div>
+                            </nav>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+  <div class="container">
+            <div class="row" style="margin-top: 5px;">
+                <div class="col-md-2 col-lg-2 col-xl-2"></div>
+                <div class="col-md-8 col-lg-8 col-xl-8 bg-white">
+                    <div class="p-3">
+                        <div>
+                            <h4>Welcome {{ user.username}}</h4>
+                        </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <h5>Question {{ current }} of {{ total }}</h5>
+                        </div>
+                        <div>
+                            {% if user.is_authenticated and user.is_staff %}
+                                <a href="{% url 'add_question' exam.id %}">
+                                    <button class="btn btn-sm btn-primary fw-bold"> Create</button>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <div class="card p-2 shadow">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                  <form method="post">
+                                    {% csrf_token %}
+                                    <p><strong>{{ question.text }}</strong></p>
+                                    <ul>
+                                      <li><label><input type="radio" name="selected_option" value="A" {% if prev_selected == "A" %}checked{% endif %}> {{ question.option_a }}</label></li>
+                                      <li><label><input type="radio" name="selected_option" value="B" {% if prev_selected == "B" %}checked{% endif %}> {{ question.option_b }}</label></li>
+                                      <li><label><input type="radio" name="selected_option" value="C" {% if prev_selected == "C" %}checked{% endif %}> {{ question.option_c }}</label></li>
+                                      <li><label><input type="radio" name="selected_option" value="D" {% if prev_selected == "D" %}checked{% endif %}> {{ question.option_d }}</label></li>
+                                    </ul>
+
+                                    <div style="margin-top: 20px;">
+                                        {% if current > 1 %}
+                                            <button type="submit" name="prev">⬅ Previous</button>
+                                        {% endif %}
+
+                                        {% if current < total %}
+                                            <button type="submit" name="next">Next ➡</button>
+                                        {% else %}
+                                            <button type="submit" name="submit">Finish ➡</button>
+                                        {% endif %}
+                                        <button type="submit" name="submit" style="background: green; color: white;">✅ Submit Now</button>
+                                    </div>
+                                  </form>
+                            </div>
+                            <div>
+                                {% if user.is_authenticated and user.is_staff %}
+                                <a href="{% url 'edit_question' question.id %}">Edit</a> | <a href="{% url 'delete_question' question.id %}" >Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap 5/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+
+
+{% comment %} <title>Test</title>
+  <h2>{{ exam.title }}</h2>
+  <p>Question {{ current }} of {{ total }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <p><strong>{{ question.text }}</strong></p>
+    <ul>
+      <li><label><input type="radio" name="selected_option" value="A" {% if prev_selected == "A" %}checked{% endif %}> {{ question.option_a }}</label></li>
+      <li><label><input type="radio" name="selected_option" value="B" {% if prev_selected == "A" %}checked{% endif %}> {{ question.option_b }}</label></li>
+      <li><label><input type="radio" name="selected_option" value="C" {% if prev_selected == "A" %}checked{% endif %}> {{ question.option_c }}</label></li>
+      <li><label><input type="radio" name="selected_option" value="D" {% if prev_selected == "A" %}checked{% endif %}> {{ question.option_d }}</label></li>
+    </ul>
+
+    <div style="margin-top: 20px;">
+      {% if current > 1 %}
+      <button type="submit" name="previous">Previous</button>
+      {% endif %}
+      {% if current < total %}
+      <button type="submit" name="next">Next</button>
+      {% else %}
+      <button type="submit" name="submit">Submit</button>
+      {% endif %}
+    </div>
+  </form> {% endcomment %}
+
+
+
+
+
+
+

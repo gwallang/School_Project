@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylis.css' %}">
+    <title>About us</title>
+</head>
+<body>
+    <!-- narbar -->
+   <div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a  href="{% url 'home' %}" class="navbar-band fw-bold text-decoration-none text-white Edusphere">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                 <li class="nav-item">
+                    <a  href="{% url 'home' %}" class="nav-link active text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a  href="{% url 'logout' %}" class="nav-link active text-white">LogOut</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                {% for exam in exams %}
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'teacher_exam_results' exam.id %}">Student Record</a>
+                </li>
+                {% empty %}
+                    <li>No exams available.</li>
+                  {% endfor %}
+
+                {% comment %} <li class="nav-item dropdown ">
+                    <a class="nav-link active text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
+                    <ul class="dropdown-menu bg-dark px-2" aria-labelledby="dropdownMenuLink ">
+                        <li class="bg-danger border-bottom border-dark  border-5">
+                            <a href="{{ static '/student' }}" class="dropdown-item">Login as Student</a>
+                        </li>
+                        <li class="bg-danger">
+                            <a href="{{ static '/teacher' }}" class="dropdown-item">Login as teacher</a>
+                        </li>
+                    </ul>
+                </li> {% endcomment %}
+
+<!-- signup section -->
+                {% comment %} <li class="nav-item dropdown me-3">
+                    <a class="nav-link active text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Signup</a>
+                    <ul class="dropdown-menu bg-dark px-2" aria-labelledby="dropdownMenuLink ">
+                        <li class="bg-danger border-bottom border-dark  border-5">
+                            <a href="{{ static '/signup-student' }}" class="dropdown-item">Signup as Student</a>
+                        </li>
+                        <li class="bg-danger">
+                            <a href="{{ static 'signup-teacher' }}" class="dropdown-item">Signup as teacher</a>
+                        </li>
+                    </ul>
+                </li> {% endcomment %}
+                
+                </ul>
+
+               
+            </div>
+        </div>
+                            </nav>
+                    </div>
+                </div>
+            </div>
+    </div> 
+
+
+
+
+
+
+
+    <!-- About us content -->
+    <div>
+        <section class="py-4 bg bg-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col md-4 my-auto">
+                        <h4>About us</h4>
+                    </div>
+
+                    <div class="col-md-4 my-auto">
+                        <h6 class="float-end">
+                            Home/ About us
+                        </h6>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section  border-bottom">
+            <div class="container">
+                <h5 class="main-heading">Our Project</h5>
+                <div class="underline"></div>
+                <p>
+                This project is a digital learning platform designed to help students understand and master quadratic and simultaneous equations through interactive and user-friendly tools. The application offers a structured learning experience by combining theory, guided examples, practice problems, and instant feedback. Key features include step-by-step equation solvers, visual aids like graphs, quizzes for self-assessment, and progress tracking. The goal is to make algebra more engaging and accessible for learners, while also supporting teachers with tools to reinforce key mathematical concepts.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Our vision, mission and value  -->
+
+        <section class="section bg-c-light border-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12  mb-4 text-center ">
+                            <h3 class="main-heading">Vision Mission and Value</h3>
+                            <div class="underline mx-auto"></div>
+                            
+<div class=" mt-5 text-p row">
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our vision</h6>
+                                <p>
+                                To empower students with a deep understanding of algebra by making learning quadratic and simultaneous equations simple, interactive, and engaging.
+                                </p>
+                            </div>
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our mission</h6>
+                                <p>
+                                To create an accessible digital platform that enhances math learning through step-by-step solutions, interactive tools, and self-paced practice focused on quadratic and simultaneous equations. 
+                                </p>
+                            </div>
+
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our Core value</h6>
+                                <p>
+                                We value accessible, engaging, and clear learning experiences that promote continuous growth and embrace innovative teaching methods through technology.
+                                </p>
+                            </div>
+
+</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+   
+
+
+    </div>
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

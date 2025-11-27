@@ -1,0 +1,11 @@
+<h2>All Question</h2>
+<a href="{% urls 'add_question' %}">Add Question</a>
+<ul>
+    {% for question in questions %}
+        <li>
+            {{ question.subject.name }} - {{ question.question_text }}
+            [ <a href="{% url 'edit_question'question.pk %}">Edit</a> ]
+            [ <a href="{% url 'delete_question'question.pk %}">Delete</a> ]
+        </li>
+    {% endfor %}
+</ul>

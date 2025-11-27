@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Signup Page</title>
+</head>
+<body>
+    <div class="container mt-5 px-5">
+        <h2 class="ms-auto text-center me-auto mb-3  text-primary">Signup Page</h2>
+        <form  method="post" class="row rg-3">
+            {% csrf_token %}
+            <div class="col-12 my-2">
+                <label class="form-label">Username</label>
+            </div>
+            {{ form.username }}  
+            <div class="col-12 my-1">
+                <label class="form-label">Occupation</label>
+            </div>
+             {{ form.occupation }}
+            <div class="col-12 my-1">
+                <label class="form-label">School</label>    
+            </div>
+            {{ form.school }}
+            <div class="col-12 my-1">
+                <label class="form-label">Gender</label>
+            </div>
+            {{ form.gender }}
+
+            {% if form.error %}
+                <ul style="color:red;">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                                <li>{{ field.label }}: {{error}}</li>
+                        {%endfor%}
+                    {%endfor%}
+                </ul>
+            {% endif %}
+            <div class="col-12 my-3 ms-3">
+                <button type="submit" class="btn btn-lg btn-info">Submit</button>
+            </div>
+            <p>Already have an account? <a class="hi" href="{% url 'login' %}">Login here</a></p>   
+        </form>
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}%"></script>
+    
+</body>
+</html>

@@ -1,0 +1,175 @@
+
+.section{
+  padding: 40px 0;
+}
+
+.navbar-dark{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.main-heading{
+  color: rgb(204, 18,18 );
+  font-size: 26px;
+}
+
+.underline{
+  height: 04px;
+  width: 4rem;
+  background-color: #f76c2f;
+  margin: 10px 0;
+}
+.bg-c-light{
+  background-color: #f2f2f2;
+}
+
+p{
+  font-size: 14px;
+  color: #262626;
+}
+
+.footer a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer a:hover{
+    color: grey;
+}
+.footer p{
+  color: #fff ;
+}
+
+.image{
+  background-image: url("doug.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 26rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: darken;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  /* opacity: 0.3 !important; */
+  /* background-color: rgba(0, 0, 0, 0.7) !important; */
+  
+}
+.master{
+    font-family: Cambria, Cochin, Georgina, Times, 'Times New Roman', serif !important;
+    font-weight: 900 !important;
+    font-size: 3rem !important;
+    /* color:#f76c2f; */
+}
+
+.user-log{
+  margin-top: 6.9rem;
+}
+.comprehend-c{
+  padding: 0 11rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+a{
+  transition: all 1s;
+  text-decoration: none !important;
+
+}
+a:-moz-loading{
+  transition: ease-in-out;
+}
+.nav-item .nav-link {
+  transition: all 1s;
+   
+  
+}
+.nav-item .nav-link:-moz-loading {
+  transition: ease-in-out;
+   
+  
+}
+.nav-item .nav-link:hover {
+  color: rgb(204, 18, 18) !important; 
+  
+}
+.Edusphere:hover {
+  color: rgb(204, 18, 18) !important; 
+  
+}
+.staff{
+  padding-left: 2.2rem  !important;
+  padding-right: 2.2rem !important;
+}
+
+.show-c{
+  background-color:rgb(204, 18, 18) !important;
+  border-color: rgb(204, 18, 18) !important;
+  /* border-color: blue !important; */
+}
+.acct:hover{
+  background-color: #f2f2f2!important;
+  border-color:#f2f2f2 !important;
+  color: yellowgreen !important;
+}
+
+/* span:hover{
+  color: #262626;
+} */
+
+.lesson{
+ text-decoration: none !important;
+ color: black;
+ background-color: whitesmoke  !important;
+ width: 55% !important;
+
+ align-items: center !important;
+ justify-content: center !important;
+ margin: 0 auto;
+}
+
+.lesson:hover{
+  background-color: rgb(104, 104, 196) !important;
+}
+
+.loginBack{
+  width: 5.9rem !important;
+}
+.blind{
+  display: inline !important;
+
+}
+.card{
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+/* questions */
+.question-box{
+  margin-bottom: 20px;
+}
+
+.option{
+  display: block;
+}
+
+.result{
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.qidField{
+  background-color: #f2f2f2 !important;
+  border-top: 2px solid black !important;
+  border-bottom: 2px solid black !important;
+}
+.qField{
+  background-color: #f2f2f2 !important;
+  border: 2px solid black !important;
+}
+.opField{
+  background-color: whitesmoke !important;
+  border: 2px solid black;
+
+}

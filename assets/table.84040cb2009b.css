@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+    
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(240, 217, 217, 0.1);
+}
+    
+th, td {
+    padding: 9px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+    
+th {
+    background-color: #120a3d;
+    color: white;
+}
+
+th:hover{
+    color: #57c792;
+}
+    
+tr:hover {
+    background-color: #8f92aa;
+}
+    
+caption {
+    caption-side: top;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}

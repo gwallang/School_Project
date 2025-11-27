@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth.css">
+    <title>Signin Page</title>
+</head>
+<body>
+  <h2>Login</h2>
+  {% if error %}
+      <p style="color: red;">{{ error }}</p>
+  {% endif %}
+  <form method="post">
+      {% csrf_token %}
+      <label>Username:</label><br>
+      <input type="text" name="username" required>
+
+      <label>occupation:</label><br>
+      <select name="occupation" required><br>
+         <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+      </select>
+
+      <label>School:</label>
+      <select name="school" required>
+          <option value="general_hassan">General Hassan</option>
+          <option value="queen_hope">Queen Hope</option>
+      </select>
+
+      <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+
+</body>
+</html>

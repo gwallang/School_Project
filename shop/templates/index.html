@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylis.css' %}">
+    <title>Home</title>
+</head>
+<body>
+
+<!-- Navbar -->
+   <div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a  href="{% url 'home' %}" class="navbar-band fw-bold text-decoration-none text-white Edusphere">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a  href="{% url 'home' %}" class="nav-link active text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a  href="{% url 'logout' %}" class="nav-link active text-white">LogOut</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                {%  if user.is_staff %}
+                    {% for exam in exams %}
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="{% url 'teacher_exam_results' exam.id %}">Student Record</a>
+                    </li>
+                    {% empty %}
+                        <li>No exams available.</li>
+                    {% endfor %}
+                {% endif %}
+
+                {% if user.is_authenticated and user.occupation == 'student' %}
+                    <li>
+                        <a class="nav-link active text-white" href="{% url 'student_history' %}">View My Record</a>
+                    </li>
+                {% endif %}
+
+            </ul>   
+            </div>
+        </div>
+                </nav>
+            </div>
+            </div>
+         </div>
+    </div> 
+
+<!-- Hero section -->
+ <div class=" container-fluid p-lg-5 p-none image d-block w-100">
+                                <h3 class="text-center mt-5 master">Mastering Quadratic & Simultaneous Equations</h3>
+                                <p class=" comprehend-c d-lg-block d-none text-center text-white text-5">A comprehensive digital learning platform designed specifically for SS2 Students to excel in advanced mathematics with interactive lessons and practice problems.</p>
+
+                                
+                                <div class="  text-center user-log">
+                                    
+                                    <h5 class="mb-4">Ready to Start Learning?</h5>
+                                    <div class="text-center Acc" mt-2 >
+                                        <a href="{% url 'topic_list' %}" class="btn-sm btn-info border-info me-2 py-3 px-3 taxt-dark shadow acct"><span class="fw-bold ">Take Lessons</span></a>
+                                        <a href="{% url 'subject_list' %}" class="btn-sm  ms-2 py-3 px-3 shadow text-white show-c acct"><span class="fw-bold ">Exam Page</span></a>                                        
+                                    </div>
+                                    </div>
+                    </div>
+        </div>
+<!-- Briefing -->
+ <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3 class="main-heading">Our Project</h3>
+                            <div class="underline mx-auto"></div>
+                            <p>This project is a digital learning platform designed to help students understand and master quadratic and simultaneous equations through interactive and user-friendly tools. The application offers a structured learning experience by combining theory, guided examples, practice problems, and instant feedback. Key features include step-by-step equation solvers, visual aids like graphs, quizzes for self-assessment, and progress tracking. The goal is to make algebra more engaging and accessible for learners, while also supporting teachers with tools to reinforce key mathematical concepts.</p>
+
+                            <a href="/about" class="btn btn-warning shadow">Read More</a>
+                        
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+<!-- Our vision, mission and value -->
+ <section class="section bg-c-light border-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12  mb-4 text-center ">
+                            <h3 class="main-heading">Vision Mission and Value</h3>
+                            <div class="underline mx-auto"></div>
+                            
+<div class=" mt-5 text-p row">
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our vision</h6>
+                                <p>
+                                To empower students with a deep understanding of algebra by making learning quadratic and simultaneous equations simple, interactive, and engaging.
+                                </p>
+                            </div>
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our mission</h6>
+                                <p>
+                                To create an accessible digital platform that enhances math learning through step-by-step solutions, interactive tools, and self-paced practice focused on quadratic and simultaneous equations. 
+                                </p>
+                            </div>
+
+
+                            <div class='col-lg-4 text-center '>
+                                <h6>Our Core value</h6>
+                                <p>
+                                We value accessible, engaging, and clear learning experiences that promote continuous growth and embrace innovative teaching methods through technology.
+                                </p>
+                            </div>
+
+</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+<!-- services -->
+ <div class="container">
+
+
+        <div class="row">
+
+                                 <!-- firstcard -->
+                            <div class='col-md-4  '>
+                                <div class='card shadow' >
+                                    <img src="{% static 'children-learning.jpg' %}" class="w-100 border-bottom" alt="service" />
+                                <div class='card-body' >
+
+                                <h4 class="text-start">Activity1</h4>
+
+                                <div class="underline"></div>
+                                <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                </p>
+
+                                <a href="/heaven'" class="btn btn-primary py-2 px-5 shadow" >play</a>
+                                
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                             <!-- secondcard  -->
+                            <div class='col-md-4  '>
+                                <div class='card shadow' >
+                                    <img src="{% static 'Self-study.jpg' %}" class="w-100 border-bottom" alt="service" />
+                                <div class='card-body' >
+
+                                <h4 class="text-start">Activity2</h4>
+
+                                <div class="underline"></div>
+                                <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                </p>
+
+                                <a href="/heaven" class="btn btn-primary py-2 px-5 shadow" >play</a>
+                                
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- thirdcard -->
+                            <div class='col-md-4  '>
+                                <div class='card shadow' >
+                                    <img src="{% static 'group-learning.jpg' %}" class="w-100 border-bottom" alt="service" />
+                                <div class='card-body' >
+
+                                <h4 class="text-start">Activity3</h4>
+
+                                <div class="underline"></div>
+                                <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                </p>
+
+                                <a href="/heaven" class="btn btn-primary py-2 px-5 shadow" >play</a>
+                                
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                           
+
+                        </div>
+            </div>
+<!-- Footer -->
+ <section class="section footer bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>Company Information</h6>
+                        <hr/>
+                        <p text-white>
+                        This digital learning platform was developed by Lawal, Victor, Daniel, a student of Abubakar Tafawa Balewa University, bauchi, as part of a school project aimed at enhancing mathematics education through technology. With a passion for both coding and problem-solving, the developer designed the platform to help students easily understand and practice quadratic and simultaneous equations in an interactive and user-friendly environment.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6>Quick Links</h6>
+                        <hr/>
+                        <div><a href="{% url 'home' %}">Home</a></div>
+                        <div><a href="{% url 'about' %}">About us</a></div>
+                        <div><a href="{% url 'contact' %}">Contact Us</a></div>
+                        <!-- <div><a href="{% url 'about' %}">Blog</a></div> -->
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <h6>Contact Information</h6>
+                        <hr/>
+                        <div><p class="text-white mb-1">Address: Abubakar Tafawa Balewa University, bauchi gubi campus.</p></div>
+                        <div><p class="text-white mb-1">+91 894XXXXX8</p></div>
+                        <div><p class="text-white mb-1">+91 894XXXXX8</p></div>
+                        <div><p class="text-white mb-1">email@domain.com</p></div>
+
+                    </div>
+
+                </div>
+                 
+
+
+
+
+            </div>
+        </section>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

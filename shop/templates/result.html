@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-learning Content View</title>
+  <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+ 
+</head>
+<body>
+
+    <!-- Navbar -->
+<div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a class="navbar-band fw-bold text-decoration-none text-white Edusphere" href="{% url 'home' %}">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+
+               
+            </div>
+        </div>
+                            </nav>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="container">
+                <div class="row" style="margin-top: 5px;">
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-8 col-lg-8 col-xl-8 bg-white">
+                <div class="p-3">
+                    <div>
+                        <h3>Welcome <small style="color: blue;">{{ user.username }}</small> !!</h3>
+                    </div>
+                </div>
+                <div>
+                    <title>Student Result</title>
+                    <h2>Exam Result</h2>
+                    <p>Exam: {{ attempt.exam.title }}</p>
+                    <p>Score: {{ attempt.score }}</p>
+                    <p>Attempt Number: {{ attempt.attempt_number }}</p>
+                    <a href="{% url 'student_history' %}">View History</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+
+
+{% comment %} <title>Student Result</title>
+<h2><a href="{% url 'home' %}">Exam Result</a></h2>
+<p>Exam: {{ attempt.exam.title }}</p>
+<p>Score: {{ attempt.score }}</p>
+<p>Attempt Number: {{ attempt.attempt_number }}</p>
+<a href="{% url 'student_history' %}">View History</a> {% endcomment %}

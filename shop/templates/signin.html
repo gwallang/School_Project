@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Signin Page</title>
+</head>
+<body>
+    <div class="container mt-5 ms-auto px-5">
+        <h2 class="ms-auto text-center me-auto mb-3  text-primary">Login Page</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form  method="post" class="row rg-3">
+            {% csrf_token %}
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="username" required>
+            
+            <label class="form-label">Occupation</label>
+            <select class="form-select form-select-lg" name="occupation" required >
+                <option selected>select any one</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+            
+            
+            <label class="form-label">School</label>
+            <select class="form-select form-select-lg" name="school" required >
+                <option selected>select any one</option>
+                <option value="general_hassan">General Hassan</option>
+                <option value="queen_hope">Queen Hope</option>
+            </select>
+            
+            <button type="submit" class="btn btn-lg my-2 btn-info">Login</button>
+            <p>Don't have an account?<a class="hi text-danger ms-4" href="{% url 'signup' %}">Sign up here</a></p>
+
+            
+        </form>
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap 5/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-learning Content View</title>
+  <link rel="stylesheet" href="{% static 'bootstrap 5/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'table.css' %}">
+ 
+ 
+</head>
+<body>
+
+    <!-- Navbar -->
+<div class="navbar-dark bg-dark shadow ">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+            <a class="navbar-band fw-bold text-decoration-none text-white Edusphere" href="{% url 'home' %}">EduSphere</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+
+               
+            </div>
+        </div>
+                            </nav>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="container">
+                <div class="row" style="margin-top: 5px;">
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-8 col-lg-8 col-xl-8 bg-white">
+                <div class="p-3">
+                    <div>
+                        <h4>Welcome {{ user.username }}!</h4>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <a href="{% url 'download_exam_result_excel' exam.id %}" class="btn btn-success">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                   <h2>Results for {{ exam.title }}</h2>
+                   <table border="1">
+                     <tr>
+                       <th>Student</th>
+                       <th>School</th>
+                       <th>Attempt #</th>
+                       <th>Score</th>
+                       <th>Gender</th>
+                       <th>Date</th>
+                     </tr>
+                     {% for attempt in attempts %}
+                       <tr>
+                         <td>{{ attempt.student.username }}</td>
+                         <td>{{ attempt.student.school }}</td>
+                         <td>{{ attempt.attempt_number }}</td>
+                         <td>{{ attempt.score }}</td>
+                         <td>{{ attempt.student.gender }}</td>
+                         <td>{{ attempt.timestamp }}</td>
+                       </tr>
+                     {% endfor %}
+                   </table>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+
+    </div>
+
+
+    <script src="{% static 'bootstrap 5/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+
+  
+  {% comment %} <h2>Results for {{ exam.title }}</h2>
+  <table border="1">
+    <tr>
+      <th>Student</th>
+      <th>Attempt #</th>
+      <th>Score</th>
+      <th>Date</th>
+    </tr>
+    {% for attempt in attempts %}
+      <tr>
+        <td>{{ attempt.student.username }}</td>
+        <td>{{ attempt.attempt_number }}</td>
+        <td>{{ attempt.score }}</td>
+        <td>{{ attempt.timestamp }}</td>
+      </tr>
+    {% endfor %}
+  </table> {% endcomment %}
+
+
+
+
